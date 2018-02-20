@@ -17,4 +17,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+
+# Running in prod mode 
+ npm install http-server -g //to install globally
+cd dist 
+then run http-server
+
  
