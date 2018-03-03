@@ -1,12 +1,14 @@
 # Angular 5 Progressive Web App
 *  Install angular service worker npm install 
-    @angular/service-worker
+   ``` @angular/service-worker ```
 * Configure angular cli to user service workers
+  ```
    "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       },
-      "serviceWorker": true//here we are telling angular to use service worker.
+      "serviceWorker": true//here we are telling angular to use service worker. 
+   ```
 * Register service worker in your app by adding to app.module the fallowing code.
      imports: [
     BrowserModule,
