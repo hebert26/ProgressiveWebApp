@@ -1,53 +1,58 @@
 # Angular 5 Progressive Web App
 *  Install angular service worker npm install 
-   ``` @angular/service-worker ```
+   ```
+    @angular/service-worker
+   ```
 * Configure angular cli to user service workers
   ```
-   "environments": {
+   "  environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       },
       "serviceWorker": true//here we are telling angular to use service worker. 
    ```
 * Register service worker in your app by adding to app.module the fallowing code.
-     imports: [
-    BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { / 
-      enabled: environment.production
-    })
-  ],
+    ```
+        imports: [
+        BrowserModule,
+        ServiceWorkerModule.register('/ngsw-worker.js', { / 
+        enabled: environment.production
+        })
+        ]
+    ```
 * Create a server worker basic configuration file in .src/ngsw-config.json
-    {
-    "index": "/index.html",
-    "assetGroups": [{
-        "name": "app",
-        "installMode": "prefetch",
-        "resources": {
-        "files": [
-            "/favicon.ico",
-            "/index.html"
-        ],
-        "versionedFiles": [
-            "/*.bundle.css",
-            "/*.bundle.js",
-            "/*.chunk.js"
-        ]
+  ```
+        {
+        "index": "/index.html",
+        "assetGroups": [{
+            "name": "app",
+            "installMode": "prefetch",
+            "resources": {
+            "files": [
+                "/favicon.ico",
+                "/index.html"
+            ],
+            "versionedFiles": [
+                "/*.bundle.css",
+                "/*.bundle.js",
+                "/*.chunk.js"
+            ]
+            }
+        }, {
+            "name": "assets",
+            "installMode": "lazy",
+            "updateMode": "prefetch",
+            "resources": {
+            "files": [
+                "/assets/**"
+            ], 
+            "urls": [
+            "https://fonts.googleapis.com/**"
+            ]
+            }
+        }]
         }
-    }, {
-        "name": "assets",
-        "installMode": "lazy",
-        "updateMode": "prefetch",
-        "resources": {
-        "files": [
-            "/assets/**"
-        ], 
-        "urls": [
-        "https://fonts.googleapis.com/**"
-        ]
-        }
-    }]
-    }
- 
+   ```
 
 ## Development server
 
